@@ -1,0 +1,269 @@
+:root {
+  /* fonts, colors, maybe some sizes for fonts, containers, etc */
+  --color-primary: #1b1a27;
+  --color-accent: #f84f39;
+
+  --font-primary: Haffer, sans-serif;
+  --font-fancy: 'Caveat', cursive;
+
+  --nav-height: 135px;
+}
+
+/*
+ * Resets
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-primary);
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+input, textarea, button, select {
+  font: inherit;
+}
+
+/*
+ * Util
+ */
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.font-fancy {
+  font-family: var(--font-fancy);
+}
+
+/*
+ * App styles
+ */
+
+body {
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  @media (min-width: 768px) {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
+
+.nav-static {
+  @media (min-width: 576px) {
+    --nav-height: 90px;
+  }
+
+  @media (min-width: 768px) {
+    --nav-height: 150px;
+  }
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  .container {
+    @media (min-width: 576px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  svg {
+    height: 40px;
+    fill: white;
+    margin-right: 16px;
+
+    + div {
+      font-size: 18px;
+    }
+
+    @media (max-width: 575px) {
+      margin-bottom: 18px;
+    }
+
+    @media (min-width: 768px) {
+      height: 56px;
+
+      + div {
+        font-size: 24px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      height: 60px;
+
+      + div {
+        font-size: 26px;
+      }
+    }
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    a {
+      font-weight: 700;
+      border-width: 1px;
+      border-color: hsla(0, 0%, 100%, 0.21);
+      border-radius: 999px;
+      border-style: none;
+      background-color: rgba(255, 255, 255, 0.06);
+      padding: 14px 20px;
+      font-size: 16px;
+      transition: all 200ms ease;
+
+      @media (min-width: 767px) {
+        font-size: 20px;
+      }
+
+      @media (min-width: 992px) {
+        font-size: 24px;
+      }
+
+      &:hover {
+        background-color: hsla(0, 0%, 100%, 0.16);
+      }
+    }
+  }
+}
+
+#hero-section {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+
+  #hero-clipping-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    height: 100vh;
+    width:51.4667%;
+
+    @media (min-width: 768px) {
+      width: 59.375%;
+    }
+
+    @media (min-width: 992px) {
+      width: 67.5%;
+    }
+  }
+
+  .hero-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 200px 16px 0;
+
+    @media (min-width: 768px) {
+      padding: 275px 25px 0;
+    }
+
+    @media (min-width: 992px) {
+      padding: 385px 25px 0;
+    }
+
+    .hero-text {
+      font-size: 36px;
+
+      @media (min-width: 768px) {
+        font-size: 50px;
+      }
+
+      @media (min-width: 992px) {
+        font-size: 80px;
+      }
+
+      font-weight: 700;
+      line-height: 1;
+
+      span {
+        font-size: 50px;
+        display: inline-block;
+        margin-right: 8px;
+        position: relative;
+        line-height: .85;
+
+        @media (min-width: 768px) {
+          font-size: 75px;
+          width: 230px;
+        }
+
+        @media (min-width: 992px) {
+          font-size: 110px;
+          width: 340px;
+        }
+      }
+    }
+
+    &#hero-left {
+      background-color: var(--color-accent);
+      color: var(--color-primary);
+
+      span {
+        color: #fff;
+      }
+    }
+
+    &#hero-right {
+      background-color: var(--color-primary);
+
+      span {
+        color: var(--color-accent);
+        left: 8px;
+      }
+    }
+  }
+}
