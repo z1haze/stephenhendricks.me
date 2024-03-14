@@ -1,7 +1,7 @@
 :root {
   /* fonts, colors, maybe some sizes for fonts, containers, etc */
-  --color-primary: #1b1a27;
-  --color-accent: #f84f39;
+  --color-primary: 27 26 39;
+  --color-accent: 248 79 57;
 
   --font-primary: Haffer, sans-serif;
   --font-fancy: 'Caveat', cursive;
@@ -151,12 +151,11 @@ nav {
     gap: 16px;
 
     a {
+      border-color: hsla(0, 0%, 100%, 0.21);
       font-weight: 700;
       border-width: 1px;
-      border-color: hsla(0, 0%, 100%, 0.21);
       border-radius: 999px;
       border-style: none;
-      background-color: rgba(255, 255, 255, 0.06);
       padding: 14px 20px;
       font-size: 16px;
       transition: all 200ms ease;
@@ -249,8 +248,23 @@ nav {
     }
 
     &#hero-left {
-      background-color: var(--color-accent);
-      color: var(--color-primary);
+      background-color: rgb(var(--color-accent));
+      color: rgb(var(--color-primary));
+
+      nav {
+         a {
+          color: rgb(var(--color-primary));
+        }
+
+        svg {
+          fill: rgb(var(--color-primary));
+        }
+      }
+
+      .links a {
+        background-color: rgb(var(--color-primary));
+        color: rgba(255 255 255 / .85);
+      }
 
       span {
         color: #fff;
@@ -258,10 +272,15 @@ nav {
     }
 
     &#hero-right {
-      background-color: var(--color-primary);
+      background-color: rgba(var(--color-primary));
+
+      .links a {
+        background-color: rgba(255 255 255 / .85);
+        color: rgb(var(--color-primary));
+      }
 
       span {
-        color: var(--color-accent);
+        color: rgb(var(--color-accent));
         left: 8px;
       }
     }
